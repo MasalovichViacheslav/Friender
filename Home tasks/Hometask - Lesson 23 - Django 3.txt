@@ -1,0 +1,42 @@
+Запросы
+
+4)	Вывести всех пользователей сайта.
+all_users = Users.objects.all()
+for user in all_users:
+    print(user.name, user.surname)
+
+
+5)	Вывести все заведения, кроме баров!
+places_except_bars = Establishments.objects.exclude(category=3)
+for place in places_except_bars:
+    print(place.name)
+
+
+6)	Вывести тех пользователей которые старше 40 лет.
+not_all_users = Users.objects.filter(age__gt = 40)
+for user in not_all_users:
+    print(user.name, user.surname)
+
+
+7)	Найти всех пользователей которых зовут “Nick” и которые не проживают в Минске
+not_all_users = Users.objects.exclude(city="Minsk").filter(name="Nick")
+for user in not_all_users:
+    print(user.name, user.surname)
+
+
+8)	Вывести первых 5 самых младших людей на сайте.
+not_all_users = Users.objects.order_by("age")[:5]
+for user in not_all_users:
+    print(user.name, user.surname)
+
+
+9)	Вывести всех девушек в возрасте от 18 до 30 лет
+not_all_users = Users.objects.filter(sex="f", age__gte=18, age__lte=30)
+for user in not_all_users:
+    print(user.name, user.surname)
+
+
+10)	Вывести всех пользователей, которые не заполнили почту на сайте
+not_all_users = Users.objects.filter(email__isnull=True)
+for user in not_all_users:
+    print(user.name, user.surname)

@@ -7,18 +7,18 @@
   <thead>
     <tr>
       <th scope="col">Establishment</th>
+      <th scope="col">Category</th>
       <th scope="col">Address</th>
-      <th scope="col">Average bill</th>
-      <th scope="col">Rating</th>
+      <th scope="col">Phone</th>
     </tr>
   </thead>
   <tbody>
-  {% for key, value in ESTABLISHMENTS.items %}
+  {% for place in ESTABLISHMENTS %}
     <tr>
-      <th scope="row">{{ key }}</th>
-      <td>{{ value.0 }}</td>
-      <td>{{ value.1 }}</td>
-      <td>{{ value.2 }}</td>
+      <th scope="row">{{ place.name }}</th>
+      <td>{{ place.category }}</td>
+      <td>{{ place.address }}</td>
+      <td>{{ place.phone }}</td>
     </tr>
   {% endfor %}
   </tbody>
