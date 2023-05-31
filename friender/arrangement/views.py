@@ -59,8 +59,8 @@ def allusers(request):
 #     "Gambrinus": ["Svobody sq., 2", "15-35 BYN", 5.0],
 #     "Duduk": ["Bogdanovicha str., 7", "15-35 BYN", 5.0]
 # }
-def establishments(request):
-    return render(request, "establishments.html", {"ESTABLISHMENTS": Establishments.objects.all})
+def allplaces(request):
+    return render(request, "places.html", {"allplaces": Places.objects.all})
 
 
 # def ratings(request):

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Places for arrangements{% endblock title %}
+
+{% block rest_body %}
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Place name</th>
+      <th scope="col">City</th>
+      <th scope="col">Address</th>
+      <th scope="col">Supported hobbies</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for place in allplaces %}
+    <tr>
+      <th scope="row">{{ place.place_name }}</th>
+      <td>{{ place.city }}</td>
+      <td>{{ place.place_address }}</td>
+      <td>{% for hobby in place.supported_hobbies.all %} {{ hobby.hobby_name }} {% endfor %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock rest_body %}

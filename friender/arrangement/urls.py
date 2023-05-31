@@ -12,5 +12,5 @@ urlpatterns = [
     # path('ratings/', ratings, name="ratings"),
     path('main/', main, name="main"),
     path('users/', allusers, name="users"),
-    path('establishments/', establishments, name="establishments"),
+    path('establishments/', allplaces, name="places"),
 ]

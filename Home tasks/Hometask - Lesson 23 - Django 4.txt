@@ -1,0 +1,203 @@
+Задания:
+
+1)	Создать диаграмму зависимости моделей ORM с помощью сайта: https://yuml.me/
+Сделано - см. DB table links.jpg в arrangement
+
+
+2)	По нарисованной диаграмме создать модели и связать их внешними ключами
+Сделано - см. models.py в arrangement
+
+
+3)	Проработать логику проекта, добавив необходимые ограничения.
+Сделано - см. models.py в arrangement
+
+
+4)	Зарегистрировать модели в файле admin.py
+Сделано - см. admin.py в arrangement
+
+
+5)	Добавить 5-6 объектов для каждой модели в проекте
+Модель Cities
+Cities.objects.create(city_name = "CentralCity", population= 1250000)
+Cities.objects.create(city_name = "SouthCity", population= 1000000)
+Cities.objects.create(city_name = "NorthCity", population= 750000)
+Cities.objects.create(city_name = "EastCity", population= 800000)
+Cities.objects.create(city_name = "WestCity", population= 950000)
+
+
+Модель Hobbies
+Hobbies.objects.create(hobby_name="Football", hobby_category="spo")
+Hobbies.objects.create(hobby_name="Basketball", hobby_category="spo")
+Hobbies.objects.create(hobby_name="Ice hockey", hobby_category="spo")
+Hobbies.objects.create(hobby_name="Billiard", hobby_category="spo")
+Hobbies.objects.create(hobby_name="Tennis", hobby_category="spo")
+Hobbies.objects.create(hobby_name="Museum", hobby_category="art")
+Hobbies.objects.create(hobby_name="Theatre", hobby_category="art")
+Hobbies.objects.create(hobby_name="Opera", hobby_category="art")
+Hobbies.objects.create(hobby_name="Cinema", hobby_category="art")
+Hobbies.objects.create(hobby_name="Concert", hobby_category="art")
+Hobbies.objects.create(hobby_name="Horse riding", hobby_category="act")
+Hobbies.objects.create(hobby_name="Climbing", hobby_category="act")
+Hobbies.objects.create(hobby_name="ATV riding", hobby_category="act")
+Hobbies.objects.create(hobby_name="Bicycle riding", hobby_category="act")
+Hobbies.objects.create(hobby_name="Paintball shooting", hobby_category="act")
+Hobbies.objects.create(hobby_name="Singing", hobby_category="cre")
+Hobbies.objects.create(hobby_name="Painting", hobby_category="cre")
+Hobbies.objects.create(hobby_name="Cooking", hobby_category="cre")
+Hobbies.objects.create(hobby_name="Dancing", hobby_category="cre")
+Hobbies.objects.create(hobby_name="Quest", hobby_category="oth")
+Hobbies.objects.create(hobby_name="Fishing", hobby_category="oth")
+
+
+Модель Users
+import random
+boys_names = ['Jacob', 'Michael', 'Joshua', 'Matthew', 'Ethan', 'Andrew', 'Daniel', 'William', 'Joseph', 'Christopher', 'Anthony', 'Ryan', 'Nicholas', 'David', 'Alexander', 'Tyler', 'James', 'John', 'Dylan', 'Nathan', 'Jonathan', 'Brandon', 'Samuel', 'Christian', 'Benjamin', 'Zachary', 'Logan', 'Jose', 'Noah', 'Justin', 'Elijah', 'Gabriel', 'Caleb', 'Kevin', 'Austin', 'Robert', 'Thomas', 'Connor', 'Evan', 'Aidan', 'Jack', 'Luke', 'Jordan', 'Angel', 'Isaiah', 'Isaac', 'Jason', 'Jackson', 'Hunter', 'Cameron', 'Gavin', 'Mason', 'Aaron', 'Juan', 'Kyle', 'Charles', 'Luis', 'Adam', 'Brian', 'Aiden', 'Eric', 'Jayden', 'Alex', 'Bryan', 'Sean', 'Owen', 'Lucas', 'Nathaniel', 'Ian', 'Jesus', 'Carlos', 'Adrian', 'Diego', 'Julian', 'Cole', 'Ashton', 'Steven', 'Jeremiah', 'Timothy', 'Chase', 'Devin', 'Seth', 'Jaden', 'Colin', 'Cody', 'Landon', 'Carter', 'Hayden', 'Xavier', 'Wyatt', 'Dominic', 'Richard', 'Antonio', 'Jesse', 'Blake', 'Sebastian', 'Miguel', 'Jake', 'Alejandro', 'Patrick']
+girls_names = ['Emily', 'Emma', 'Madison', 'Olivia', 'Hannah', 'Abigail', 'Isabella', 'Ashley', 'Samantha', 'Elizabeth', 'Alexis', 'Sarah', 'Grace', 'Alyssa', 'Sophia', 'Lauren', 'Brianna', 'Kayla', 'Natalie', 'Anna', 'Jessica', 'Taylor', 'Chloe', 'Hailey', 'Ava', 'Jasmine', 'Sydney', 'Victoria', 'Ella', 'Mia', 'Morgan', 'Julia', 'Kaitlyn', 'Rachel', 'Katherine', 'Megan', 'Alexandra', 'Jennifer', 'Destiny', 'Allison', 'Savannah', 'Haley', 'Mackenzie', 'Brooke', 'Maria', 'Nicole', 'Makayla', 'Trinity', 'Kylie', 'Kaylee', 'Paige', 'Lily', 'Faith', 'Zoe', 'Stephanie', 'Jenna', 'Irea', 'Riley', 'Katelyn', 'Angelina', 'Kimberly', 'Madeline', 'Mary', 'Leah', 'Lillian', 'Michelle', 'Amia', 'Sara', 'Sofia', 'Jordan', 'Alexa', 'Rebecca', 'Gabrielle', 'Caroline', 'Vanessa', 'Gabriella', 'Avery', 'Marissa', 'Ariana', 'Audrey', 'Jada', 'Autumn', 'Evelyn', 'Jocelyn', 'Maya', 'Arianna', 'Isabel', 'Amber', 'Melanie', 'Diana', 'Danielle', 'Sierra', 'Leslie', 'Aaliyah', 'Erin', 'Amelia', 'Molly', 'Claire', 'Bailey', 'Melissa']
+surname = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark', 'Rodriguez', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Hernandez', 'King', 'Wright', 'Lopez', 'Hill', 'Scott', 'Green', 'Adams', 'Baker', 'Gonzalez', 'Nelson', 'Carter', 'Mitchell', 'Perez', 'Roberts', 'Turner', 'Phillips', 'Campbell', 'Parker', 'Evans', 'Edwards', 'Collins', 'Stewart', 'Sanchez', 'Morris', 'Rogers', 'Reed', 'Cook', 'Morgan', 'Bell', 'Murphy', 'Bailey', 'Rivera', 'Cooper', 'Richardson', 'Cox', 'Howard', 'Ward', 'Torres', 'Peterson', 'Gray', 'Ramirez', 'James', 'Watson', 'Brooks', 'Kelly', 'Sanders', 'Price', 'Bennett', 'Wood', 'Barnes', 'Ross', 'Henderson', 'Coleman', 'Jenkins', 'Perry', 'Powell', 'Long', 'Patterson', 'Hughes', 'Flores', 'Washington', 'Butler', 'Simmons', 'Foster', 'Gonzales', 'Bryant', 'Alexander', 'Russell', 'Griffin', 'Diaz', 'Hayes']
+sex = ['m', 'f']
+hobbies_list = []
+for i in Hobbies.objects.all():
+    hobbies_list.append(i)
+
+for _ in range(299):
+    user_sex = sex[random.randint(0, 1)]
+    if user_sex == 'm':
+        user_name = random.choice(boys_names)
+    else:
+        user_name = random.choice(girls_names)
+    user_surname = random.choice(surname)
+    user_age = random.randint(20, 40)
+    user_email = user_name + "." + user_surname + str(user_age) + "@gmail.com"
+    user_city = random.choice(Cities.objects.all())
+    user_hobbies_list = random.sample(hobbies_list, k=random.randint(2, 6))
+    Users.objects.create(name=user_name, surname=user_surname, age=user_age, sex=user_sex, email=user_email, city=user_city).hobby.add(*user_hobbies_list)
+
+
+Модель UserRating
+import random
+excellent_abjectives = ['ideal', 'super', 'wow', 'perfect', 'cool', 'attractive']
+good_abjectives = ['good', 'clever', 'pretty', 'interesting', 'funny', 'pleasant', 'nice', 'open', 'outgoing', 'extravert', 'carefree', 'light-hear', 'truthful', 'candid', 'frank', 'easy-going', 'outspoken', 'straightforward', 'forthright']
+neutral_abjectives = ['very specific', 'inactive', 'inert', 'sluggish', 'torpid', 'slow', 'languid', 'credulous', 'gullible', 'trustful', 'deceivable', 'simple', 'languid']
+bad_abjectives = ['boring', 'impolite', 'very specific', 'ill-bred', 'ill-mannered', 'bad-mannered', 'unmannerly', 'rude', 'impolite', 'uncivil ', 'vulgar', 'coarse', 'dense', 'clumsy', 'awkward']
+very_bad_abjectives = ['stupid', 'brainless', 'witless', 'dim-witted', 'feeble-minded', 'foolish', 'silly', 'imprudent', 'dull', 'dense', 'clumsy', 'awkward']
+feedback_dict = {5: excellent_abjectives, 4: good_abjectives, 3: neutral_abjectives, 2: bad_abjectives, 1: very_bad_abjectives}
+male_nouns = ['man', 'guy', 'person', 'dude']
+female_nouns = ['woman', 'lady', 'girl', 'person']
+
+for _ in range(599):
+    evaluated_user = random.choice(Users.objects.all())
+    rating = random.randint(1,5)
+    if evaluated_user.sex == 'm':
+        feedback = random.choice(feedback_dict[rating]) + ' ' + random.choice(male_nouns)
+    else:
+        feedback = random.choice(feedback_dict[rating]) + ' ' + random.choice(female_nouns)
+    UserRating.objects.create(user_rating=rating, feedback_about_user=feedback).user.add(evaluated_user)
+
+
+Модель Places
+import random
+places_dict = {
+   'Hollywood Cinema': ['Billiard', 'Museum', 'Cinema', 'Quest'],
+   'Central Park': ['Football', 'Basketball', 'Tennis', 'Concert', 'Bicycle riding', 'Fishing'],
+   'Creactivity Center': ['Singing', 'Painting', 'Cooking', 'Dancing'],
+   'Grand Opera Hall': ['Opera', 'Concert', 'Singing'],
+   'Business & Entertaiment Center "Infinity"': ['Billiard', 'Cinema', 'Concert', 'Climbing', 'Quest'],
+   'Sport Complex Olymp': ['Football', 'Basketball', 'Ice hockey', 'Billiard', 'Tennis', 'Climbing', 'Bicycle riding'],
+   'Old Theatre': ['Theatre'],
+   'Farmstead Lake Forest': ['Football', 'Tennis', 'Museum', 'Horse riding', 'ATV riding', 'Bicycle riding', 'Paintball shooting', 'Singing', 'Cooking', 'Dancing', 'Fishing'],
+   'Sport Club Meteora': ['Football', 'Basketball', 'Tennis'],
+   'SuperArena': ['Football', 'Basketball', 'Ice hockey', 'Billiard', 'Tennis', 'Museum', 'Theatre', 'Opera', 'Cinema', 'Concert', 'Horse riding', 'Climbing', 'ATV riding', 'Bicycle riding', 'Paintball shooting', 'Singing', 'Painting', 'Cooking', 'Dancing', 'Quest', 'Fishing'],
+   'Farmstead Fazenda': ['Billiard', 'Museum', 'Horse riding', 'Climbing', 'ATV riding', 'Bicycle riding', 'Paintball shooting', 'Singing', 'Fishing'],
+   'Bar Champion': ['Football', 'Basketball', 'Ice hockey', 'Billiard', 'Tennis', 'Singing', 'Cooking'],
+   'Creactivity School': ['Singing', 'Painting', 'Cooking', 'Dancing'],
+   'Pub Funny Joe': ['Ice hockey', 'Billiard', 'Singing'],
+   'City Gallery': ['Museum', 'Painting'],
+   'Winter Arena': ['Ice hockey', 'Billiard', 'Climbing', 'Dancing'],
+   'Park of Lakes': ['ATV riding', 'Bicycle riding', 'Paintball shooting', 'Fishing'],
+   'Sharp Bar': ['Football', 'Basketball', 'Ice hockey', 'Billiard', 'Tennis'],
+   'Business & Entertaiment Center "Unicorn"': ['Museum', 'Cinema', 'Concert', 'Singing', 'Painting', 'Cooking', 'Dancing', 'Quest'],
+   'Center of Arts': ['Museum', 'Theatre', 'Opera', 'Singing', 'Painting', 'Dancing'],
+   'Cinema City': ['Cinema', 'Quest'],
+   'Wonder Village': ['Football', 'Billiard', 'Tennis', 'Horse riding', 'Climbing', 'ATV riding', 'Bicycle riding', 'Paintball shooting', 'Fishing'],
+   'Bar Baracuda': ['Football', 'Basketball', 'Ice hockey', 'Billiard', 'Tennis'],
+   'New Generation Theatre': ['Theatre', 'Concert'],
+   'Business & Entertaiment Center "Universe"': ['Museum', 'Cinema', 'Concert', 'Climbing', 'Singing', 'Painting', 'Cooking', 'Dancing', 'Quest']
+}
+boys_names = ['Jacob', 'Michael', 'Joshua', 'Matthew', 'Ethan', 'Andrew', 'Daniel', 'William', 'Joseph', 'Christopher', 'Anthony', 'Ryan', 'Nicholas', 'David', 'Alexander', 'Tyler', 'James', 'John', 'Dylan', 'Nathan', 'Jonathan', 'Brandon', 'Samuel', 'Christian', 'Benjamin', 'Zachary', 'Logan', 'Jose', 'Noah', 'Justin', 'Elijah', 'Gabriel', 'Caleb', 'Kevin', 'Austin', 'Robert', 'Thomas', 'Connor', 'Evan', 'Aidan', 'Jack', 'Luke', 'Jordan', 'Angel', 'Isaiah', 'Isaac', 'Jason', 'Jackson', 'Hunter', 'Cameron', 'Gavin', 'Mason', 'Aaron', 'Juan', 'Kyle', 'Charles', 'Luis', 'Adam', 'Brian', 'Aiden', 'Eric', 'Jayden', 'Alex', 'Bryan', 'Sean', 'Owen', 'Lucas', 'Nathaniel', 'Ian', 'Jesus', 'Carlos', 'Adrian', 'Diego', 'Julian', 'Cole', 'Ashton', 'Steven', 'Jeremiah', 'Timothy', 'Chase', 'Devin', 'Seth', 'Jaden', 'Colin', 'Cody', 'Landon', 'Carter', 'Hayden', 'Xavier', 'Wyatt', 'Dominic', 'Richard', 'Antonio', 'Jesse', 'Blake', 'Sebastian', 'Miguel', 'Jake', 'Alejandro', 'Patrick']
+surname = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark', 'Rodriguez', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Hernandez', 'King', 'Wright', 'Lopez', 'Hill', 'Scott', 'Green', 'Adams', 'Baker', 'Gonzalez', 'Nelson', 'Carter', 'Mitchell', 'Perez', 'Roberts', 'Turner', 'Phillips', 'Campbell', 'Parker', 'Evans', 'Edwards', 'Collins', 'Stewart', 'Sanchez', 'Morris', 'Rogers', 'Reed', 'Cook', 'Morgan', 'Bell', 'Murphy', 'Bailey', 'Rivera', 'Cooper', 'Richardson', 'Cox', 'Howard', 'Ward', 'Torres', 'Peterson', 'Gray', 'Ramirez', 'James', 'Watson', 'Brooks', 'Kelly', 'Sanders', 'Price', 'Bennett', 'Wood', 'Barnes', 'Ross', 'Henderson', 'Coleman', 'Jenkins', 'Perry', 'Powell', 'Long', 'Patterson', 'Hughes', 'Flores', 'Washington', 'Butler', 'Simmons', 'Foster', 'Gonzales', 'Bryant', 'Alexander', 'Russell', 'Griffin', 'Diaz', 'Hayes']
+abjectives_for_landscape_address = ['North', 'South', 'West', 'East', 'Green', 'Blue', 'Red']
+nouns_for_landscape_address = ['River', 'Lake', 'Forrest', 'Valley', 'Field']
+
+
+for key, value in places_dict.items():
+    pl_hobbies_list = []
+    for hobby in value:
+        pl_hobbies_list.append(Hobbies.objects.get(hobby_name=hobby))
+    if random.choice(['person', 'landscape']) == 'person':
+        address = random.choice(boys_names) + ' ' + random.choice(surname) + ' ' + random.choice(['str., ', 'av., ']) + str(random.randint(1, 200))
+    else:
+        address = random.choice(abjectives_for_landscape_address) + ' ' + random.choice(nouns_for_landscape_address) + ' ' + random.choice(['str., ', 'av., ']) + str(random.randint(1, 20))
+    Places.objects.create(place_name=key, city=random.choice(Cities.objects.all()), place_address=address).supported_hobbies.add(*pl_hobbies_list)
+
+
+модель Arrangements
+import random
+def men_shortlisting(n, longlist):
+    for a_man in longlist:
+        a_man_bobbies = Hobbies.objects.filter(users__id=a_man.id)
+        if len(the_woman_bobbies.intersection(a_man_bobbies)) >= n:
+            men_shortlist.append(a_man)
+    return men_shortlist
+
+
+for _ in range(1, 26):
+    the_woman = random.choice(Users.objects.filter(sex='f'))
+    the_woman_bobbies = Hobbies.objects.filter(users__id=the_woman.id)
+    the_city_all_men = Users.objects.filter(sex='m', city=the_woman.city)
+    other_cities_all_men = Users.objects.exclude(sex='m', city=the_woman.city)
+    men_shortlist = []
+    the_man_is_defined = False
+    for n in range(3):
+        if len(men_shortlisting(3 - n, the_city_all_men)) > 0:
+            the_man = random.choice(men_shortlisting(3 - n, the_city_all_men))
+            the_man_is_defined = True
+            break
+    if the_man_is_defined == False:
+        for n in range():
+            if len(men_shortlisting(3 - n, other_cities_all_men)) > 0:
+                the_man = random.choice(men_shortlisting(3 - n, other_cities_all_men))
+                break
+    arr_place = random.choice(Places.objects.filter(city=the_woman.city))
+    formed_arrangement = Arrangements(arrangement_number=_)
+    formed_arrangement.save()
+    formed_arrangement.user.add(the_woman, the_man)
+    formed_arrangement.place.add(arr_place)
+
+
+Модель PlaceRating
+import random
+for _ in range(699):
+    elavuation_score = random.randint(1, 5)
+    place = random.choice(Places.objects.all())
+    evaluator = random.choice(Users.objects.filter(city=place.city))
+    PlaceRating.objects.create(place_rating=elavuation_score, place_name=place, user=evaluator)
+
+
+6)	Вывести всех пользователей старше 30 которые любят спорт!
+Users.objects.filter(age__gt = 30, hobby__hobby_category = 'spo').distinct
+
+
+7)	Вывести первых 5 девушек у которых больше 3 хобби.
+from django.db.models import Count
+Users.objects.annotate(user_hobbies_qty=Count('hobby')).filter(user_hobbies_qty__gt = 3, sex='f')[:5]
+Places.objects.filter(placerating__place_rating = highest_score['place_rating__max']).distinct()
+
+
+8)	Вывести все заведения с максимальным рейтингом.
+from django.db.models import Max
+highest_score = PlaceRating.objects.aggregate(Max('place_rating'))
+Places.objects.filter(placerating__place_rating = highest_score['place_rating__max']).distinct()
+
+
+9)	Подключить PostgreSQL и создать необходимые миграции.
+Сделано - см. settings.py в friender и migrations в arrangement
